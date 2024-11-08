@@ -1,9 +1,4 @@
-export function setupCounter(element: HTMLButtonElement) {
-  let counter = 0
-  const setCounter = (count: number) => {
-    counter = count
-    element.innerHTML = `count is ${counter}`
-  }
-  element.addEventListener('click', () => setCounter(++counter))
-  setCounter(0)
-}
+export { createElement } from './react';
+export { jsx, jsxs } from './jsx-runtime';
+export { jsxDEV, jsxsDEV } from './jsx-dev-runtime';
+export * from './types';

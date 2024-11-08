@@ -4,28 +4,26 @@ import dts from 'vite-plugin-dts'
 export default defineConfig({
   build: {
     lib: {
-      entry: './lib/index.ts',
-      formats: ['es', 'cjs'],
+      entry: {
+        index: './lib/index.ts',
+        'jsx-runtime/index': './lib/jsx-runtime/index.ts',
+        'jsx-dev-runtime/index': './lib/jsx-dev-runtime/index.ts'
+      },
+      formats: ['es'],
     },
     rollupOptions: {
-      output: [
-        {
-          format: 'es',
-          dir: './dist/esm',
-          entryFileNames: '[name].js',
-        },
-        {
-          format: 'cjs',
-          dir: './dist/cjs',
-          entryFileNames: '[name].js',
-        },
-      ],
+      external: [],
+      output: {
+        preserveModules: true,
+        entryFileNames: `[name].js`,
+      },
     },
+    minify: false,
   },
   plugins: [
     dts({
+      include: ['lib'],
       outDir: './dist/types',
-      include: ['lib/**/*'],
     }),
   ],
 })
