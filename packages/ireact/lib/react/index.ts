@@ -12,6 +12,16 @@ export const createElement = (type: any, props: any, ...children: any[]): IReact
   };
 };
 
+export const jsx = (type: any, props: any) => {
+  return createElement(type, props)
+}
+
+export const jsxs = jsx
+
+export const jsxDEV = (type: any, props: any) => {
+  return createElement(type, props)
+}
+
 export const iReact = {
   createElement,
 };

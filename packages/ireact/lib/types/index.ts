@@ -1,13 +1,13 @@
-declare global {
-  namespace JSX {
-    interface IntrinsicElements {
-      [elemName: string]: any;
-    }
+export namespace JSX {
+  export interface Element {
+    type: any
+    props: any
+    key: any
+  }
+
+  export interface IntrinsicElements {
+    [elemName: string]: any
   }
 }
 
-export type IReactElement = {
-  type: any;
-  props: any;
-  key: string | null;
-}; 
+export type IReactElement = any
